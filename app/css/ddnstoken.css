@@ -1,0 +1,198 @@
+/*! 
+ * DDNSToken Config CSS - v1.0.1 - 2023-06-10
+ * Support at https://ddnstoken.com
+ * Copyright Certchip and other contributors; Licensed MIT
+ */
+
+body {
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+#app-name {
+  font-size: 32px;
+}
+#serial-port {  
+  width: 88vw;
+  height: 30px;
+  font-size: 20px;
+}
+#ddns-service {  
+  width: 88vw;
+  height: 30px;
+  font-size: 20px;
+}
+.subject {
+  width: 88vw;
+  font-size: 20px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+.subject button {
+  float: right;
+  margin-left: 10px;
+}
+.device-scan {
+  width: 20px;
+  height: 20px;  
+}
+.bottom {
+  width: 88vw;
+  height: 30px;
+}
+.bottom button {
+  float: right;
+  margin-left: 10px;
+}
+
+.progress {
+  width: 88vw;
+  margin-bottom: 4px;
+}
+.progress #per {  
+  background-color: blue;
+  width: 0%;
+  height: 2px;
+}
+
+.copyrights {
+  position: absolute;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  border-top: lightgray 1px solid;
+  width: 88vw;
+  bottom: 0px;
+  text-align: center;
+  color: gray;
+}
+
+.wifiScan {
+  float: right; 
+  cursor: pointer;
+}
+.wifiScan:hover {
+  text-decoration: underline;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 3px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #1676d2;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #f29b3d;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #f00; 
+}
+
+.center {
+  text-align: center;
+}
+.left {
+  text-align: left;
+}
+.justify {
+  text-align: justify;
+}
+.red {
+  color: red;
+}
+
+.hide,
+.hidden {
+  display: none;
+}
+
+.ddnstoken-link {
+  position: fixed;
+  top: 10px;
+  right: 35px;
+  cursor: pointer;
+}
+.certchip-link {
+  cursor: pointer;
+}
+
+.terminal {
+  position: relative;
+  width: 88vw;
+  height: calc(100vh - 330px);
+  margin-top: 10px;
+  margin-bottom: 4px;
+  border-radius: 6px;
+  padding-top: 45px;
+  overflow: hidden;
+  background-color: rgb(15, 15, 16);
+}
+
+#main-terminal-container {
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+}
+
+.terminal::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 30px;
+  background: rgb(58, 58, 58);
+  width: 100%;
+  font-size: 1.0cm;
+  line-height: 32px;
+  padding: 0;
+  padding-left: 4px;
+  text-indent: 4px;
+  letter-spacing: 2px;
+}
+.terminal pre {
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+  color: white;
+  padding: 0 1rem 1rem;
+  margin: 0;
+}
+
+.terminal-title-default::before {
+  content: "\2022 \2022 \2022";
+  color: gray;
+}
+.terminal-title-active::before {
+  content: "\2022 \2022 \2022";
+  color: lightgreen;
+}
+.terminal-title-error::before {
+  content: "\2022 \2022 \2022";
+  color: red;
+}
+
+
+label, input { display:block; }
+input.text { margin-bottom:12px; width:95%; padding: .4em; }
+fieldset { padding:0; border:0; margin-top:25px; }
+h1 { font-size: 1.2em; margin: .6em 0; }
+div#users-contain { width: 350px; margin: 20px 0; }
+div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
+div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
+.ui-dialog .ui-state-error { padding: .3em; }
+.wifiTips { border: 1px solid transparent; padding: 0.3em; }
+.wifiList { border: 1px solid transparent; padding: 0.3em; }
+.wifiForm { border: 1px solid transparent; padding: 0.3em; }
+.ssidList { border: 1px solid transparent; padding: 0.3em; }
+.ssidList select {
+  width: 100%;
+  height: 30px;
+}
+.dialog-wifi-scan-button {
+  position: absolute;
+  left: 20px;
+}
+
+.ddnsForm select {
+  width: calc(100% - 4px);
+  height: 30px;
+}

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://ddnstoken.com">
+    <title>DDNSToken Configurator 1.1</title>
+    <link rel="stylesheet" href="css/jquery-ui.min.css" />
+    <link rel="stylesheet" href="css/ddnstoken.css" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/ddnstoken.js"></script>
+</head>
+<body>
+  <div id="dialog-reset" title="Reset"><p>Are you sure you want to factory reset your device?</p></div>          
+  <div id="dialog-reboot" title="Reboot"><p>Are you sure you want to reboot your device?</p></div>          
+  <div id="dialog-wifi" title="WiFi">
+    <p class="wifiTips">
+        Enter the settings for a Token device to connect to your WiFi network.<br><br>
+        <font color="red">Note: Token device only supports 2.4GHz WiFi.</font>
+    </p>
+    <div class="wifiList">List of WiFi detected on the device<span class="wifiScan">Scan</span></div>     
+    <div class="ssidList"><select></select></div>
+    <form class="wifiForm">
+      <fieldset>
+        <label for="ssid">SSID</label>
+        <input type="text" name="ssid" id="wifissid" class="text ui-widget-content ui-corner-all">
+        <label for="pass">Password</label>
+        <input type="password" name="pass" id="wifipass" class="text ui-widget-content ui-corner-all">       
+        <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+      </fieldset>
+    </form>
+  </div>
+  <div id="dialog-duckdns" title="Duck DNS">
+    <form class="duckdnsForm ddnsForm">
+      <fieldset>
+        <label for="domain">Domain</label>
+        <input type="text" name="domain" id="domain" class="text ui-widget-content ui-corner-all">
+        <label for="token">Token</label>
+        <input type="password" name="token" id="token" class="text ui-widget-content ui-corner-all">       
+        <label for="interval">Interval</label>
+        <select id="interval" class="text ui-widget-content ui-corner-all"></select>
+        <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+      </fieldset>
+    </form>
+  </div>
+  <div id="dialog-cloudflare" title="Cloudflare">
+    <form class="cloudflareForm ddnsForm">
+      <fieldset>
+        <label for="domain">Domain</label>
+        <input type="text" name="domain" id="domain" class="text ui-widget-content ui-corner-all">
+        <label for="token">API Token</label>
+        <input type="password" name="token" id="token" class="text ui-widget-content ui-corner-all">       
+        <label for="interval">Interval</label>
+        <select id="interval" class="text ui-widget-content ui-corner-all"></select>
+        <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+      </fieldset>
+    </form>
+  </div>
+  <div id="dialog-godaddy" title="GoDaddy">
+    <form class="godaddyForm ddnsForm">
+      <fieldset>
+        <label for="domain">Domain</label>
+        <input type="text" name="domain" id="domain" class="text ui-widget-content ui-corner-all">
+        <label for="record">Record Name</label>
+        <input type="text" name="record" id="record" class="text ui-widget-content ui-corner-all">
+        <label for="apikey">API Key</label>
+        <input type="password" name="apikey" id="apikey" class="text ui-widget-content ui-corner-all">       
+        <label for="apisecret">API Secret</label>
+        <input type="password" name="apisecret" id="apisecret" class="text ui-widget-content ui-corner-all">       
+        <label for="interval">Interval</label>
+        <select id="interval" class="text ui-widget-content ui-corner-all"></select>
+        <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+      </fieldset>
+    </form>
+  </div>
+  <div id="dialog-dyndns" title="GoDaddy">
+    <form class="dyndnsForm ddnsForm">
+      <fieldset>
+        <label for="domain">Domain</label>
+        <input type="text" name="domain" id="domain" class="text ui-widget-content ui-corner-all">
+        <label for="record">Record Name</label>
+        <input type="text" name="record" id="record" class="text ui-widget-content ui-corner-all">
+        <label for="apikey">API Key</label>
+        <input type="password" name="apikey" id="apikey" class="text ui-widget-content ui-corner-all">       
+        <label for="apisecret">API Secret</label>
+        <input type="password" name="apisecret" id="apisecret" class="text ui-widget-content ui-corner-all">       
+        <label for="interval">Interval</label>
+        <select id="interval" class="text ui-widget-content ui-corner-all"></select>
+        <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+      </fieldset>
+    </form>
+  </div>
+  <div id="dialog-google" title="Google">
+    <form class="googleForm ddnsForm">
+      <fieldset>
+        <label for="hostname">Hostname</label>
+        <input type="text" name="hostname" id="hostname" class="text ui-widget-content ui-corner-all">
+        <label for="username">Username</label>
+        <input type="password" name="username" id="username" class="text ui-widget-content ui-corner-all">       
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" class="text ui-widget-content ui-corner-all">       
+        <label for="interval">Interval</label>
+        <select id="interval" class="text ui-widget-content ui-corner-all"></select>
+        <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+      </fieldset>
+    </form>
+  </div>
+  <div id="dialog-noip" title="No-IP">
+    <form class="noipForm ddnsForm">
+      <fieldset>
+        <label for="hostname">Hostname</label>
+        <input type="text" name="hostname" id="hostname" class="text ui-widget-content ui-corner-all">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" class="text ui-widget-content ui-corner-all">       
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" class="text ui-widget-content ui-corner-all">       
+        <label for="interval">Interval</label>
+        <select id="interval" class="text ui-widget-content ui-corner-all"></select>
+        <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+      </fieldset>
+    </form>
+  </div>
+  <div id="dialog-cloudns" title="ClouDNS">
+    <form class="cloudnsForm ddnsForm">
+      <fieldset>
+        <label for="qstring">Your String (value for q)</label>
+        <input type="password" name="qstring" id="qstring" class="text ui-widget-content ui-corner-all">       
+        <label for="interval">Interval (Recommended 15)</label>
+        <select id="interval" class="text ui-widget-content ui-corner-all"></select>
+        <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+      </fieldset>
+    </form>
+  </div>
+  <div id="dialog-freemyip" title="Freemyip">
+    <form class="freemyipForm ddnsForm">
+      <fieldset>
+        <label for="domain">Domain Name</label>
+        <input type="text" name="domain" id="domain" class="text ui-widget-content ui-corner-all">
+        <label for="token">Token</label>
+        <input type="password" name="token" id="token" class="text ui-widget-content ui-corner-all">       
+        <label for="interval">Interval</label>
+        <select id="interval" class="text ui-widget-content ui-corner-all"></select>
+        <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+      </fieldset>
+    </form>
+  </div>
+  <div id="dialog-freedns" title="Freemyip">
+    <form class="freednsForm ddnsForm">
+      <fieldset>
+        <label for="token">Token</label>
+        <input type="password" name="token" id="token" class="text ui-widget-content ui-corner-all">       
+        <label for="interval">Interval</label>
+        <select id="interval" class="text ui-widget-content ui-corner-all"></select>
+        <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+      </fieldset>
+    </form>
+  </div>
+  <h1 id="app-name">Hello DDNSToken</h1>
+    <div class="ddnstoken-link">https://ddnstoken.com</div>
+    <div class="subject">Device Port 
+      <button id="connect-button">Connect</button> 
+      <button id="scan-button">Scan</button>
+      <button id="reset-button" class="command-button hidden">Reset</button>
+      <button id="reboot-button" class="command-button hidden">Reboot</button>
+      <button id="wifi-button" class="command-button hidden">WiFi</button>
+      <button id="version-button" class="command-button hidden">Version</button>
+      <button id="update-button" class="command-button hidden">Update</button>
+    </div>
+    <div><select id="serial-port"></select></div>
+    <div class="subject">DDNS Service
+      <button id="ddns-setting-button" class="command-button hidden">Setting</button>
+    </div>
+    <div><select id="ddns-service"></select></div>
+    <div id="main-terminal" class="terminal terminal-title-default left">
+      <div id="main-terminal-container">
+        <pre></pre>
+      </div>
+    </div>
+    <div class="progress"><div id="per"></div></div>
+    <div class="bottom"><button id="clear-button">Clear</button><button id="copy-button">Copy</button></div>
+    <div class="copyrights">Copyright Ⓒ 2023 <span class="certchip-link">Certchip Corp</span>. All rights reserved.</div>
+</body>
+</html>

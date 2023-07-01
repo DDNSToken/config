@@ -1,0 +1,107 @@
+{
+  "name": "ddnstoken-configurator",
+  "productName": "DDNSToken Configurator",
+  "version": "1.1.0",
+  "description": "DDNSToken Configurator",
+  "main": "main.js",
+  "scripts": {
+    "postinstall": "electron-builder install-app-deps",
+    "start": "electron .",
+    "run": "npx electronmon .",
+    "package": "electron-builder",
+    "build:osx": "electron-builder --mac",
+    "build:linux": "npm run build:linux32 && npm run build:linux64",
+    "build:linux32": "electron-builder --linux --ia32",
+    "build:linux64": "electron-builder --linux --x64",
+    "build:win": "npm run build:win32 && npm run build:win64",
+    "build:win32": "electron-builder --win nsis:ia32",
+    "build:win64": "electron-builder --win nsis:x64",
+    "build:deb": "electron-builder --linux deb",
+    "build:rpm": "electron-builder --linux rpm",
+    "build:app": "electron-builder --linux AppImage",
+    "build:dpkg": "electron-packager . --overwrite --platform=linux --arch=x64 --icon=assets/icons/linux/icon.png --prune=true --out=release-builds",
+    "generate-credentials": "node ./scripts/generate-credentials"
+  },
+  "files": [
+    "assets/**/*"
+  ],
+  "build": {
+    "productName": "DDNSToken Configurator",
+    "appId": "com.ddnstoken.configurator",
+    "asar": true,
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb",
+        "rpm"
+      ],
+      "icon": "assets/icons/linux/icon.png",
+      "category": "Utility"
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "default",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ],
+      "icon": "assets/icons/mac/icon.icns",
+      "identity": "Certchip (H5TQHJK3Y4)",
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "type": "distribution"
+    },
+    "dmg": {
+      "title": "DDNSToken Configurator"
+    },
+    "win": {
+      "certificateFile": "D:/OTPKEY/SIGN/Certchip.p12",
+      "certificatePassword": "certchip",
+      "icon": "assets/icons/win/icon.ico",
+      "publisherName": "Certchip",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "DDNSToken"
+    },
+    "directories": {
+      "buildResources": "resources",
+      "output": "dist",
+      "app": "."
+    }
+  },
+  "author": {
+    "name": "Certchip",
+    "email": "admin@certchip.com",
+    "url": "https://www.ddnstoken.com"
+  },
+  "homepage": "https://www.ddnstoken.com",
+  "license": "ISC",
+  "dependencies": {
+    "adm-zip": "^0.5.10",
+    "serialport": "^11.0.0",
+    "toastify-js": "^1.12.0"
+  },
+  "devDependencies": {
+    "electron": "^24.2.0",
+    "electron-builder": "^24.3.0",
+    "electron-packager": "^17.1.1"
+  }
+}
