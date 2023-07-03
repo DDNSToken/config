@@ -7,7 +7,6 @@
 #
 */
 
-
 const { app, BrowserWindow, Menu, ipcMain, dialog } = require('electron');
 const util = require('util');
 const path = require('path');
@@ -22,7 +21,7 @@ const AdmZip = require('adm-zip');
 // npm install serialport
 const { SerialPort } = require('serialport');
 
-process.env.NODE_ENV = '!production';
+process.env.NODE_ENV = 'production';
 
 const isDev = process.env.NODE_ENV !== 'production';
 const isMac = process.platform === 'darwin';
@@ -613,7 +612,7 @@ function createMainWindow() {
     
     mainWindow = new BrowserWindow({
         title: 'DDNSToken Setup',
-        width: isDev ? 1000 : 640,
+        width: isDev ? 1026 : 640,
         backgroundColor: '#ffffff',
         height: 680,
         webPreferences: {
